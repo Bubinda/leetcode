@@ -31,8 +31,37 @@ class Solution:
                 t_dict[t[i]] += 1
         return s_dict == t_dict
 
+
+# like the first one but written a little shorter
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        s_range= len(s)
+        if s_range!= len(t):
+            return False
+        count_s, count_t = {},{}
+
+        for i in range(s_range):
+            count_s[s[i]] = 1 + count_s.get(s[i], 0)
+            count_t[t[i]] = 1 + count_t.get(t[i], 0)
+        for c in count_s:
+            if count_s[c] != count_t[c]:
+                return False
+        return True
+    
+        # alternate
+        # conut_s != count_t
+
+
 # very simple
 
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         return sorted(s) == sorted(t)
+    
+
+# very simple and as efficient as the first one
+from collections import Counter
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        return Counter(s) == Counter(t)
+    

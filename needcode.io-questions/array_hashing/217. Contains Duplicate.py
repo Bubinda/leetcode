@@ -16,6 +16,30 @@
 # Output: true
  
 
- class Solution:
+class Solution:
     def containsDuplicate(self, nums: List[int]) -> bool:
         return len(set(nums)) != len(nums)
+    
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        counters = {}
+
+        for i in nums:
+            if i in counters:
+                return True
+            else:
+                counters[i] = 1
+        return False
+
+
+class Solution:
+    def containsDuplicate(self, nums: List[int]) -> bool:
+        counters = set()
+
+        for i in nums:
+            if i in counters:
+                return True
+            else:
+                counters.add(i)
+        return False

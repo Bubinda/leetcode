@@ -22,15 +22,13 @@ class Solution:
             return 0
         
         num_set = set(nums) # needs to be a set to check the general streak, for this duplicates are irrelevant
-        longest_streak = 0
+        longest_streak = 1
         
         for num in num_set:
             if num - 1 not in num_set:  # Check if the number is the start of a sequence
-                current_num = num
                 current_streak = 1
                 
-                while current_num + 1 in num_set:  # Extend the sequence
-                    current_num += 1
+                while num + current_streak in num_set:  # Extend the sequence
                     current_streak += 1
                 
                 longest_streak = max(longest_streak, current_streak)
