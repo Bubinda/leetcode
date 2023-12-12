@@ -22,7 +22,7 @@
 # Since an empty string reads the same forward and backward, it is a palindrome.
  
 
- class Solution:
+class Solution:
     def isPalindrome(self, s: str) -> bool:
         s = [a.lower() for a in s if a.isalpha() or a.isdigit()]
         left = 0

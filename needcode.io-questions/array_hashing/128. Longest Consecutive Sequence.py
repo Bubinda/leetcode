@@ -22,7 +22,7 @@ class Solution:
             return 0
         
         num_set = set(nums) # needs to be a set to check the general streak, for this duplicates are irrelevant
-        longest_streak = 1
+        longest_streak = 0
         
         for num in num_set:
             if num - 1 not in num_set:  # Check if the number is the start of a sequence
