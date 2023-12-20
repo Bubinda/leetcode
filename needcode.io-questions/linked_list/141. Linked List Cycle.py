@@ -61,3 +61,20 @@ class Solution:
             if head is fast:
                 return True
         return False
+    
+
+
+
+
+class Solution:
+    def hasCycle(self, head: Optional[ListNode]) -> bool:
+        visited_values = set()
+        cur = head
+
+        while cur:
+            if cur not in visited_values:
+                visited_values.add(cur)
+                cur = cur.next
+            else:
+                return True
+        return False

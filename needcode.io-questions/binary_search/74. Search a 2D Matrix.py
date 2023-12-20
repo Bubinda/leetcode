@@ -41,3 +41,40 @@ class Solution:
 
         return False
 
+
+
+
+# most naive approach
+class Solution:
+    def searchMatrix(self,matrix:List[List[int]],target:int)->bool:
+        n=len(matrix)
+        m=len(matrix[0])
+        for i in range(n):
+            for j in range(m):
+                if matrix[i][j]==target:
+                    return True
+
+        return False                     
+
+
+
+
+
+class Solution:
+    def searchMatrix(self, matrix: List[List[int]], target: int) -> bool:
+        m, n = len(matrix), len(matrix[0])
+        t = m*n
+        l,r = 0, t-1
+
+        while l <= r:
+            M = (l+r) // 2
+            M_i = M // n # row middle index
+            M_j = M % n # column middle index
+
+            if matrix[M_i][M_j] == target:
+                return True
+            elif matrix[M_i][M_j] < target:
+                l = M + 1
+            else:
+                r = M - 1
+        return False
