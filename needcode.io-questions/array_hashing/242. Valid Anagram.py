@@ -65,3 +65,37 @@ class Solution:
     def isAnagram(self, s: str, t: str) -> bool:
         return Counter(s) == Counter(t)
     
+
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        hash_s, hash_t = {},{}
+        if len(s) != len(t):
+            return False
+        
+        for s_val,t_val in zip(s,t):
+            if s_val not in hash_s: hash_s[s_val] = 1
+            else: hash_s[s_val] += 1
+            if t_val not in hash_t: hash_t[t_val] = 1
+            else: hash_t[t_val] += 1
+
+        return hash_s == hash_t
+    
+
+
+
+class Solution:
+    def isAnagram(self, s: str, t: str) -> bool:
+        f = {}
+
+        for c in s:
+            f[c] += 1
+        else:
+            f[c] = 1
+        
+        for c in t:
+            if c not in f: return False
+            elif f[c] == 1: del f[c]
+            else: f[c] -= 1
+        
+        return not f
