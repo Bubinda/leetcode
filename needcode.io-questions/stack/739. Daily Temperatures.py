@@ -29,3 +29,17 @@ class Solution:
         return result
 
 
+
+class Solution:
+    def dailyTemperatures(self, temperatures: List[int]) -> List[int]:
+        answer = [0] * len(temperatures)
+        stk = []
+
+        for i in range(len(temperatures)):
+            while stk and stk[-1][1] < temperatures[i]:
+                stk_i, stk_temp = stk.pop()
+                answer[stk_i] = i - stk_i
+            
+            stk.append((i,temperatures[i]))
+
+        return answer
