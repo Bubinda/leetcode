@@ -27,27 +27,27 @@
  
 
 # work paritally, time limit is exceeded
-class Solution:
-    def threeSum(self, nums: List[int]) -> List[List[int]]:
-        combinations = (list(itertools.combinations(nums, 3)))
-        print(combinations)
-        valid_combis = []
-        valid_sorted = []
+# class Solution:
+#     def threeSum(self, nums: List[int]) -> List[List[int]]:
+#         combinations = (list(itertools.combinations(nums, 3)))
+#         print(combinations)
+#         valid_combis = []
+#         valid_sorted = []
         
-        if len(nums) == 3:
-            if sum(nums) == 0:
-                return [nums]
+#         if len(nums) == 3:
+#             if sum(nums) == 0:
+#                 return [nums]
 
-        for x in combinations:
-            if sum(x) == 0:
-                valid_combis.append(list(sorted(x)))
+#         for x in combinations:
+#             if sum(x) == 0:
+#                 valid_combis.append(list(sorted(x)))
         
-        for x in range(len(valid_combis)):
-            y = valid_combis.pop()
-            if y not in valid_combis:
-                valid_sorted.append(y)
+#         for x in range(len(valid_combis)):
+#             y = valid_combis.pop()
+#             if y not in valid_combis:
+#                 valid_sorted.append(y)
 
-        return valid_sorted
+#         return valid_sorted
 
 
 
@@ -81,3 +81,26 @@ class Solution:
                     right -= 1
 
         return result
+
+
+
+
+
+class Solution:
+    def threeSum(self, nums: List[int]) -> List[List[int]]:
+        ret = set()
+        d = {}
+        n = len(nums)
+
+        for i, num in enumerate(nums):
+            d[num] = i
+
+        for i in range(n):
+            for j in range(i+1, n):
+                z = -(nums[i] + nums[j])
+                if z in d and d[z] != i and d[z] != j:
+                    triple = sorted([nums[i], nums[j], z])
+                    triple = tuple(triple)
+                    ret.add(triple)
+
+        return ret
