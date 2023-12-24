@@ -43,4 +43,44 @@ class Node:
 
 class Solution:
     def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        if not head: return None
+        hashmap = {}
+        curr = head
+
+        # create nodes and add to hashmap
+        while curr:
+            new_node = Node(curr.val)
+            hashmap[curr] = new_node
+            curr = curr.next
+
+        curr = head
+
+        while curr:
+            new_node = hashmap[curr]
+            new_node.next = hashmap[curr.next] if curr.next else None
+            new_node.random = hashmap[curr.random] if curr.random else None
+            curr = curr.next
+
+        return hashmap[head]
+
+
+
+class Solution:
+    def copyRandomList(self, head: 'Optional[Node]') -> 'Optional[Node]':
+        if not head:
+            return None
         
+        old_to_new = {}
+        curr = head
+        
+        while curr:
+            old_to_new[curr] = Node(curr.val)
+            curr = curr.next
+        
+        curr = head
+        while curr:
+            old_to_new[curr].next = old_to_new.get(curr.next)
+            old_to_new[curr].random = old_to_new.get(curr.random)
+            curr = curr.next
+            
+        return old_to_new[head]

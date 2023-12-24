@@ -49,3 +49,27 @@ class Solution:
             max_length = max(max_length, end - start + 1)
 
         return max_length
+    
+
+
+class Solution:
+    def characterReplacement(self, s: str, k: int) -> int:
+        arr = [0] * 26
+        my_max = 0
+        l = 0
+
+        for r in range(len(s)):
+            arr[ord(s[r]) - ord('A')] += 1
+            w_len = r - l + 1
+            m = max(arr)
+
+            while(w_len - m) > k:
+                arr[ord(s[l]) - ord('A')] -= 1
+                l += 1
+                w_len -= 1
+                m = max(arr)
+
+            my_max = max(my_max, w_len)
+
+        return my_max
+        

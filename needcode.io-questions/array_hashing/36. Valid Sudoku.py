@@ -94,3 +94,49 @@ class Solution:
                 rows[r].add(board[r][c])
                 squares[(r // 3, c // 3)].add(board[r][c])
         return True
+    
+
+
+
+class Solution:
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        row = [set() for _ in range(9)]
+        col = [set() for _ in range(9)]
+        square = [set() for _ in range(9)]
+        for i in range(9):
+            for j in range(9):
+                if board[i][j] != '.':
+                    num = board[i][j]
+                    if num in row[i] or num in col[j] or num in square[i//3 * 3 + j//3]:
+                        return False
+                    row[i].add(num)
+                    col[j].add(num)
+                    square[i//3 * 3 + j//3].add(num)
+        return True
+    
+
+
+# in the following two solution all the elemnts that are not equal to "." are added into a list, if in the end the list and its set are of the same length the sudoku is valid
+# this validation occurs from the fact that each element is saved alongside its row/coloumn or square and if in one of those three an alement is duplicated this would be filtered out by the set operation
+# e.g. there would be two eghts in row 0 -> in the list there would be two elements like (0, '8') because there are two eghts in this row. 
+# one of those would be filtered out by the set and then those two (list and the set) are not of the same length
+class Solution(object):
+    def isValidSudoku(self, board):
+        res = []
+        for i in range(9):
+            for j in range(9):
+                element = board[i][j]
+                if element != '.':
+                    res += [(i, element), (element, j), (i // 3, j // 3, element)]
+        return len(res) == len(set(res))
+    
+
+# same as above but a little bit more concise
+class Solution(object):
+    def isValidSudoku(self, board: List[List[str]]) -> bool:
+        res = []
+        for i, row in enumerate(board):
+            for j, x in enumerate(row):
+                if x != '.':
+                    res += [(i, x), (x, j), (i // 3, j // 3, x)]
+        return len(res) == len(set(res))
