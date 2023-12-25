@@ -34,3 +34,20 @@ class Solution:
 
         dfs(root)
         return ans[0]   
+    
+
+class Solution:
+    def diameterOfBinaryTree(self, root: Optional[TreeNode]) -> int:
+        maxx = [0]
+
+        def dfs(node):
+            if not node: return 0
+
+            left = dfs(node.left)
+            right = dfs(node.right)
+            maxx[0] = max(maxx[0], left+right)
+
+            return 1 + max(left, right)
+
+        dfs(root)
+        return maxx[0]

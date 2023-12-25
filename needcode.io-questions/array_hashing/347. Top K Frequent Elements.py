@@ -74,4 +74,36 @@ class Solution:
                 return ret
 
 
+import heapq
+from collections import Counter
+
+
+
+# using a heap (min heap)
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        counter = Counter(nums)
+        heap = []
+        for num, freq in counter.items():
+            if len(heap) < k:
+                heapq.heappush(heap, (freq, num))
+            else:
+                heapq.heappushpop(heap, (freq, num))
+
+        return [t[1] for t in heap]
+
+
+
+
+# using a heap (min heap)
+class Solution:
+    def topKFrequent(self, nums: List[int], k: int) -> List[int]:
+        counter = Counter(nums)
+        heap = []
+        for num, freq in counter.items():
+            heapq.heappush(heap, (-freq, num))
+        return [heapq.heappop(heap)[1] for i in range(k)]
+
+
+
 

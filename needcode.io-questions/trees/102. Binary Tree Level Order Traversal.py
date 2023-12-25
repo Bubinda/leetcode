@@ -68,3 +68,35 @@ class Solution:
 
         level(count , root)
         return result
+    
+
+
+
+from collections import deque
+
+class Solution:
+    def levelOrder(self, root: Optional[TreeNode]) -> List[List[int]]:
+        if not root: return []
+
+        values = []
+        q = deque([root])
+
+        while q: 
+
+            length = len(q)
+            inner = []
+
+            for _ in range(length):
+
+                node = q.popleft()
+                inner.append(node.val)
+
+                if node.left:
+                    q.append(node.left)
+                    
+                if node.right:
+                    q.append(node.right)
+
+            values.append(inner)
+
+        return values
