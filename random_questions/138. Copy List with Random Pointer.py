@@ -71,8 +71,8 @@ class Solution:
             return None
         
         old_to_new = {}
-        curr = head
         
+        curr = head
         while curr:
             old_to_new[curr] = Node(curr.val)
             curr = curr.next

@@ -59,7 +59,7 @@ class Solution:
 
 
  #iterative dfs
- class Solution:
+class Solution:
     def goodNodes(self, root: TreeNode) -> int:
         stack = [(root, float('-inf'))]
         num_good_nodes = 0
