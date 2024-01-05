@@ -14,3 +14,7 @@ def factorial_recursive(x: int) -> int:
 
 for x in [5, 7, 10, 12, 0, -3]:
     print(f"{x}! = {factorial_recursive(x=x)}")
+
+
+
+    
