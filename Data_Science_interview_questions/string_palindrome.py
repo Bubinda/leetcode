@@ -88,3 +88,16 @@ def is_palindrome(s: str) -> bool:
 # Test cases
 for word in ['Bob', '**Bob****', 'Appsilon', 'A man, a plan, a canal: Panama']:
     print(f"Is {word} a palindrome? {is_palindrome(s=word)}")
+
+
+
+# recursive solution
+
+def recursive_palindrome(text: str) -> bool:
+     if len(text) <= 1:
+          return True
+     
+     if text[0] == text[-1]:
+          return recursive_palindrome(text[1:-1])
+     
+     return False
