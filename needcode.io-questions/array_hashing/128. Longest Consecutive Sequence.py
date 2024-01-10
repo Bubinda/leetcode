@@ -21,16 +21,20 @@ class Solution:
         if not nums:
             return 0
         
-        num_set = set(nums) # needs to be a set to check the general streak, for this duplicates are irrelevant
+        # needs to be a set to check the general streak, for this duplicates are irrelevant
+        num_set = set(nums) 
         longest_streak = 0
         
+        # we iterate over all numbers in the number set
         for num in num_set:
-            if num - 1 not in num_set:  # Check if the number is the start of a sequence
+            # Check if the number is the start of a sequence
+            if num - 1 not in num_set:  
                 current_streak = 1
                 
+                # if we have found a new (or potentially new) start of our streak we add the current streak (which is increased in each iteration) to our current number
                 while num + current_streak in num_set:  # Extend the sequence
                     current_streak += 1
-                
+                # after we have run over the while loop we update our longest streak
                 longest_streak = max(longest_streak, current_streak)
         
         return longest_streak

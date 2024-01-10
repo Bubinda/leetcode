@@ -84,7 +84,7 @@ LEFT JOIN
 ON 
     v.visit_id = t.visit_id
 WHERE
-    t.visit_id IS NULL
+    t.transaction_id IS NULL
 GROUP BY
     v.customer_id
 

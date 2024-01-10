@@ -28,13 +28,16 @@ class Solution:
     def groupAnagrams(self, strs: List[str]) -> List[List[str]]:
         anagrams = {}
         
+        #we wlak over our input list of words
         for word in strs:
+            # each single word is sorted so it can be compared to the anagram keys
             sorted_word = ''.join(sorted(word))
+            # is a word is not included in the anagram dictionary, we add an empty list 
             if sorted_word not in anagrams:
                 anagrams[sorted_word] = []
-            
+            # either way if the word is included or not the new word is appended to the list that is mapped to the sorted word key
             anagrams[sorted_word].append(word)
-        
+        # in the end all values of the hasmap are converted into a list, becuase those values are also lists, we gat a list of lists
         result = list(anagrams.values())
         
         return result

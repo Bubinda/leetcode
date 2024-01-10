@@ -32,6 +32,8 @@ class Solution:
         return s_dict == t_dict
 
 
+
+
 # like the first one but written a little shorter
 class Solution:
     def isAnagram(self, s: str, t: str) -> bool:

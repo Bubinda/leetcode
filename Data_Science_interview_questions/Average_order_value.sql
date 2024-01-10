@@ -1,38 +1,38 @@
-Given three tables, representing customer transactions and customer attributes:
+-- Given three tables, representing customer transactions and customer attributes:
 
-Write a query to get the average order value by gender.
+-- Write a query to get the average order value by gender.
 
-Note: We’re looking at the average order value by users that have ever placed an order. Additionally, please round your answer to two decimal places.
+-- Note: We’re looking at the average order value by users that have ever placed an order. Additionally, please round your answer to two decimal places.
 
-Example:
+-- Example:
 
-Input:
+-- Input:
 
-transactions table
+-- transactions table
 
-Column	Type
-id	INTEGER
-user_id	INTEGER
-created_at	DATETIME
-product_id	INTEGER
-quantity	INTEGER
-users table
+-- Column	Type
+-- id	INTEGER
+-- user_id	INTEGER
+-- created_at	DATETIME
+-- product_id	INTEGER
+-- quantity	INTEGER
+-- users table
 
-Column	Type
-id	INTEGER
-name	VARCHAR
-sex	VARCHAR
-products table
+-- Column	Type
+-- id	INTEGER
+-- name	VARCHAR
+-- sex	VARCHAR
+-- products table
 
-Column	Type
-id	INTEGER
-name	VARCHAR
-price	FLOAT
-Output:
+-- Column	Type
+-- id	INTEGER
+-- name	VARCHAR
+-- price	FLOAT
+-- Output:
 
-Column	Type
-sex	VARCHAR
-aov	FLOAT
+-- Column	Type
+-- sex	VARCHAR
+-- aov	FLOAT
 
 
 

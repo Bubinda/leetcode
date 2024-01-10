@@ -23,16 +23,22 @@
 class Solution:
     def isValid(self, s: str) -> bool:
         stack = []
+        # we use a hashmap where the key is the closing bracket and the value is the opening bracket to check if the closing bracket is the correct one
         bracket_map = {')': '(', '}': '{', ']': '['}
 
+        # we wlak over the input
         for char in s:
+            # for each char in the input we check if it is a closing bracket of any type
             if char in bracket_map:
+                # if it is we check if the stack is empty
                 top_element = stack.pop() if stack else '#'
+                # if the poped element (opening bracket) from the stack is not equal to the current closing bracket the input is not valid
                 if bracket_map[char] != top_element:
                     return False
+            # if we read an opening bracket we append it to the stack
             else:
                 stack.append(char)
-
+        # in the end we return if the stack is empty -> which means that the input was valid
         return not stack
     
 

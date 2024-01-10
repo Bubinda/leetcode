@@ -11,7 +11,7 @@ def palin_checker(text: str):
 
 	while first <= last:
 		if text[first] == text[last]:
-			first+= 1
+			first += 1
 			last -= 1
 
 		return False
@@ -101,3 +101,4 @@ def recursive_palindrome(text: str) -> bool:
           return recursive_palindrome(text[1:-1])
      
      return False
+

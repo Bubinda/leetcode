@@ -35,3 +35,27 @@ class Solution:
                 right -= 1
 
         return total_water
+    
+
+
+
+class Solution:
+    def trap(self, height: List[int]) -> int:
+        l_wall, r_wall = 0,0
+        n = len(height)
+        max_left, max_right = [0] * n, [0] * n
+
+        for i in range(n):
+            j = -i - 1
+            max_left[i] = l_wall
+            max_right[j] = r_wall
+            l_wall = max(l_wall, height[i])
+            r_wall = max(r_wall, height[j])
+
+        ans = [0] * n
+        for i in range(n):
+            potential = min(max_left[i], max_right[i])
+            ans[i] = max(0, potential - height[i])
+
+        
+        return sum(ans)
