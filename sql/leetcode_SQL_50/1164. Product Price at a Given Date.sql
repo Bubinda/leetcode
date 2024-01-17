@@ -44,7 +44,8 @@
 
 
 SELECT 
-    product_id, 10 AS price
+    product_id, 
+    10 AS price
 FROM 
     Products
 GROUP BY 
