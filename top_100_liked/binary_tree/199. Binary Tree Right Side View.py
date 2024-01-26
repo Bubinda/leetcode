@@ -49,12 +49,12 @@ class Solution:
 
 class Solution:
     def rightSideView(self, root: Optional[TreeNode]) -> List[int]:
-         res = []
+        res = []
 
         def solve(root, lvl):
             if root:
-        	    if len(res)==lvl:
-        		    res.append(root.val)
+                if len(res)==lvl:
+                    res.append(root.val)
                 solve(root.right, lvl + 1)
                 solve(root.left, lvl + 1)
             return 
