@@ -44,3 +44,59 @@ class Solution:
             i -= 1
 
         return length
+    
+
+
+
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        n = len(s)
+        i = n-1
+        while s[i] == ' ': i -= 1
+
+        letter_count = 0
+        for i in range(i+1):
+            if s[i] != ' ':
+                letter_count += 1
+            else:
+                letter_count = 0
+            
+        return letter_count
+    
+
+
+class Solution:
+    def lengthOfLastWord(self, s: str) -> int:
+        n = len(s)
+        i = n-1
+        while s[i] == ' ': i -= 1
+        
+        last_word_count = 0
+        for x in range(i, -1, -1):
+            if s[x] != ' ':
+                last_word_count += 1
+            else:
+                return last_word_count
+        return last_word_count
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
