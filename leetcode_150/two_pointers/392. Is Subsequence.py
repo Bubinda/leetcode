@@ -21,3 +21,108 @@ class Solution:
                 left += 1
             right += 1
         return left == len(s)
+    
+
+
+class Solution:
+    def isSubsequence(self, s: str, t: str) -> bool:
+
+        s = len(s)
+        t = len(t)
+
+        if s == '': return True
+        if s > t: return False 
+
+        j = 0
+        for i in range(t):
+            if s[j] == t[i]:
+                j += 1
+            if j == s:
+                return True
+        return False
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
